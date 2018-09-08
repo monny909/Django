@@ -1,0 +1,42 @@
+{% extends 'report/base.html' %}
+{% block page_title %}الحقائب والأدلة | {{ block.super }} {% endblock page_title %}
+
+{% block go_back %}user-home{% endblock go_back %}
+{% block content %}
+
+{% if not cases %}
+ <div id="no-content" class="starter-template">
+  <h1 class="text-center"> لايوجد محتوى لعرضه الأن!</h1>
+</div>
+{% endif %}
+{% for case in cases %}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel_default">
+      <div class="panel-body">
+        <div class="page-header">
+          <h4><a href="{{ case.id }}">{{ case.title }}</a></h4>
+        </div>
+        <p>{{ case.description|safe|linebreaks|truncatewords:30 }}</p>
+        <ul>
+        {% if case.uploaded_file1 %}
+        <li><a href="{{ case.uploaded_file1.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        {% if case.uploaded_file2 %}
+        <li><a href="{{ case.uploaded_file2.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        {% if case.uploaded_file3 %}
+        <li><a href="{{ case.uploaded_file3.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        </ul>
+        <div class="page-footer">
+
+          <small>أضيف بتاريخ: {{ case.timestamp }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'report/base.html' %}
+{% block page_title %} الأنشطة| {{ block.super }} {% endblock page_title %}
+
+{% block go_back %}user-home{% endblock go_back %}
+{% block content %}
+
+{% if not activities %}
+ <div id="no-content" class="starter-template">
+  <h1 class="text-center"> لايوجد محتوى لعرضه الأن!</h1>
+</div>
+{% endif %}
+{% for activity in activities %}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel_default">
+      <div class="panel-body">
+        <div class="page-header">
+      <h4>{{ activity.title }}</h4>
+        </div>
+        <p>{{ activity.description|safe|linebreaks }}</p>
+        <div class="page-footer">
+          <small> {{ activity.timestamp }} </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

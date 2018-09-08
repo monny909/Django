@@ -1,0 +1,28 @@
+{% extends 'report/base.html' %}
+{% block page_title %}{{ instance.title }} | {{ block.super }} {% endblock page_title %}
+
+{% block content %}
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel_default">
+              <div class="panel-body">
+                <div class="page-header">
+                  <h4>{{ instance.title }} <small> أضيف بواسطة : {{ instance.username }} {% if instance.institution %}من {{ instance.institution }} {% endif %}</small></h4>
+                </div>
+                {% if instance.thumbnail %}
+                <img id="thumbnail-css" class=" thumbnail" src="{{ instance.thumbnail.url }}" alt="{{ instance.title }}">
+                {% endif %}
+                <p>{{ instance.description|safe|linebreaks }}</p>
+                <div class="page-footer">
+                  <small style="font-size:85%;">أضيف بتاريخ: {{ instance.timestamp }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+{% endblock content %}

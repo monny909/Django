@@ -1,0 +1,27 @@
+{% extends 'report/base.html' %}
+{% block page_title %}الأخبار | {{ block.super }} {% endblock page_title %}
+
+{% block go_back %}user-home{% endblock go_back %}
+{% block content %}
+
+{% if not news %}
+ <div id="no-content" class="starter-template">
+  <h1 class="text-center"> لايوجد محتوى لعرضه الأن!</h1>
+</div>
+{% endif %}
+{% for article in news %}
+    <div class="panel panel_default">
+      <div class="panel-body">
+        <div class="page-header">
+          <h4><a href="{{ article.id }}">{{ article.title }}</a></h4>
+          <small>أضيف بتاريخ: {{ article.timestamp }} بواسطة  {{ article.username }}</small>
+        </div>
+        {% if article.thumbnail %}
+        <img id="thumbnail-css" class=" thumbnail" src="{{ article.thumbnail.url }}" alt="{{ article.title }}">
+        {% endif %}
+        <p>{{ article.description|safe|linebreaks|truncatewords:30 }}</p>
+      </div>
+    </div>
+{% endfor %}
+
+{% endblock content %}

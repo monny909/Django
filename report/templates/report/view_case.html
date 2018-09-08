@@ -1,0 +1,36 @@
+{% extends 'report/base.html' %}
+{% block page_title %}{{ instance.title }} | {{ block.super }} {% endblock page_title %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel_default">
+      <div class="panel-body">
+        <div class="page-header">
+          <h4>{{ instance.title }} <small> أضيف بواسطة : {{ instance.username }} {% if instance.institution %}من {{ instance.institution }} {% endif %}</small></h4>
+        </div>
+        <p>{{ instance.description|safe|linebreaks }}</p>
+        <ul>
+        {% if instance.uploaded_file1 %}
+        <li><a href="{{ instance.uploaded_file1.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        {% if instance.uploaded_file2 %}
+        <li><a href="{{ instance.uploaded_file2.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        {% if instance.uploaded_file3 %}
+        <li><a href="{{ instance.uploaded_file3.url }}">تحميل الملف المرفق</a></li>
+        {% endif %}
+        </ul>
+        <div class="page-footer">
+          <small style="font-size:85%;">أضيف بتاريخ: {{ instance.timestamp }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

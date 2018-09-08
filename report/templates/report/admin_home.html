@@ -1,0 +1,59 @@
+{% extends 'report/base.html' %}
+{% block page_title %} صفحة المشرف الرئيسية  | {{ block.super }} {% endblock page_title %}
+
+{% block content %}
+
+<span  id="welcome-again" class="label label-info pull-left">مرجباً مرة أخرى! {{ user.username }} </span>
+
+
+    <div class="panel panel_default">
+      <div id="admin-user-home" class="panel-body">
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/activity">عرض الأنشطة</a></button>
+          </div>
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/view-reports">عرض المشاريع</a></button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/add-activity">إضافة نشاط</a></button>
+          </div>
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/my-activity">تعديل نشاط</a></button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/add-news">إضافة أخبار</a></button>
+          </div>
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/my-news">تعديل الأخبار</a></button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/add-cases">إضافة حقائب وأدلة</a></button>
+          </div>
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/my-cases">تعديل الحقائب والأدلة</a></button>
+          </div>
+        </div>
+          <br>
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/add-school">إضافة مدرسة تطوير</a></button>
+          </div>
+          <div class="col-lg-6 col-xs-12">
+            <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/my-school">تعديل مدرسة تطوير</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock content %}

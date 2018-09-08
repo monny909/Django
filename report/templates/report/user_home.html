@@ -1,0 +1,26 @@
+{% extends 'report/base.html' %}
+{% block page_title %}صفحة العضو الرئيسية | {{ block.super }} {% endblock page_title %}
+
+{% block content %}
+
+<span id="welcome-again" class="label label-info pull-left">مرجباً مرة أخرى! {{ user.username }} </span>
+
+<div class="panel panel_default">
+  <div id="admin-user-home" class="panel-body">
+  <div id="admin-user-buttons" class="row">
+    <div class="col-md-6 col-xs-12">
+      <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/activity">مشاهدة الأنشطة</a></button>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/create-reports">مشروع جديد</a></button>
+    </div>
+    </div>
+    <div id="admin-user-buttons" class="row">
+    <div class="col-md-6 col-xs-12">
+      <button type="button" class="btn btn-lg btn-danger"><a style="text-decoration:none;color:#fff;" href="{{ root_url }}/user-reports">المشاريع المضافة بواسطتك</a></button>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% endblock content %}
